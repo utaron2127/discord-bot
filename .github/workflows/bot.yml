@@ -23,9 +23,6 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Install packages
-        run: npm install
-
       - name: Start bot
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
