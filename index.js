@@ -14,6 +14,9 @@ client.once("ready", () => {
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
+  if (message.content === "!hello") {
+  message.reply("こんにちは！コマンドを受け取りました！");
+}
 
   if (message.content === "こんにちは") {
   message.reply("こんにちは！");
