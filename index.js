@@ -38,7 +38,7 @@ client.on("messageCreate", (message) => {
   const randomReply = replies[Math.floor(Math.random() * replies.length)];
 
   message.reply(randomReply);
-}
+
 } else if (message.content === "おはよう") {
 
     message.reply("おはよう！");
