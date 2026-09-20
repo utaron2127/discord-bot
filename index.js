@@ -27,6 +27,11 @@ client.on("messageCreate", (message) => {
   message.reply("🏓 Pong!");
 }
 
+  const username = message.author.username;
+  if (message.content === "!who") {
+  message.reply(`あなたのユーザー名は ${username} です！`);
+}
+
   if (message.content.startsWith("!echo")) {
   const text = message.content.slice(5).trim();
 
