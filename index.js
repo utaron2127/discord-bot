@@ -16,8 +16,11 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
   if (message.content === "こんにちは") {
-    message.reply("こんにちは！");
-  }
-});
+  message.reply("こんにちは！");
+} else if (message.content === "おはよう") {
+  message.reply("おはよう！");
+} else if (message.content === "こんばんは") {
+  message.reply("こんばんは！");
+}
 
 client.login(process.env.DISCORD_TOKEN);
