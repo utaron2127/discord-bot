@@ -27,11 +27,6 @@ client.on("messageCreate", (message) => {
   message.reply("🏓 Pong!");
 }
 
-  const username = message.author.username;
-  if (message.content === "!who") {
-  const userId = message.author.id;  
-message.reply(`あなたのユーザー名は ${username}、IDは ${userId} です！`);
-}
 
   if (message.content.startsWith("!echo")) {
   const text = message.content.slice(5).trim();
@@ -43,6 +38,19 @@ message.reply(`あなたのユーザー名は ${username}、IDは ${userId} で�
   }
 }
 
+const username = message.author.username;
+
+if (message.content === "!who") {
+  const userId = message.author.id;
+  message.reply(`あなたのユーザー名は ${username}、IDは ${userId} です！`);
+}
+
+if (message.author.id === "1040392956814835763") {
+  if (message.content === "!secret") {
+    message.reply("これはユタロ専用だよ！");
+  }
+}
+  
 if (message.content.includes("ありがとう")) {
   message.reply("どういたしまして！");
 }
