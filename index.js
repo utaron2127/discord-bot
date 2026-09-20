@@ -27,6 +27,10 @@ client.on("messageCreate", (message) => {
   message.reply("🏓 Pong!");
 }
 
+  if (message.content.startsWith("!echo")) {
+    const text = message.content.slice(5).trim();
+    message.reply(`あなたのメッセージ：${text}`);
+}
   if (message.content==="好きな食べ物は？"){
     message.reply("甘いものが好きだよ!🍰");
   }
