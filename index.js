@@ -26,7 +26,7 @@ client.on("messageCreate", (message) => {
   if (message.content === "!ping") {
   message.reply("🏓 Pong!");
 }
-});
+
   if (message.content === "こんにちは") {
   message.reply("こんにちは！");
 } else if (message.content === "おはよう") {
