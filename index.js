@@ -37,6 +37,10 @@ client.on("messageCreate", (message) => {
   }
 }
 
+if (message.content.includes("ありがとう")) {
+  message.reply("どういたしまして！");
+}
+  
   if (message.content==="好きな食べ物は？"){
     message.reply("甘いものが好きだよ!🍰");
   }
