@@ -22,5 +22,5 @@ client.on("messageCreate", (message) => {
 } else if (message.content === "こんばんは") {
   message.reply("こんばんは！");
 }
-
+});
 client.login(process.env.DISCORD_TOKEN);
