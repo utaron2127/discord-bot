@@ -27,6 +27,11 @@ client.on("messageCreate", (message) => {
   message.reply("🏓 Pong!");
 }
 
+  if (message.content==="好きな食べ物は？"){
+    message.reply("甘いものが好きだよ!🍰");
+  }
+    
+
   if (message.content === "こんにちは") {
   const replies = [
     "こんにちは！",
