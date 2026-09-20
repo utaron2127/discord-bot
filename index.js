@@ -14,8 +14,14 @@ client.once("ready", () => {
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
-  if (message.content === "!hello") {
-  message.reply("こんにちは！コマンドを受け取りました！");
+  if (message.content.startsWith("!hello")) {
+  const name = message.content.slice(6).trim();
+
+  if (name) {
+    message.reply(`こんにちは、${name}！`);
+  } else {
+    message.reply("名前を入力してね！");
+  }
 }
 
   if (message.content === "こんにちは") {
