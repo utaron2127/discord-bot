@@ -28,9 +28,15 @@ client.on("messageCreate", (message) => {
 }
 
   if (message.content.startsWith("!echo")) {
-    const text = message.content.slice(5).trim();
+  const text = message.content.slice(5).trim();
+
+  if (text) {
     message.reply(`あなたのメッセージ：${text}`);
+  } else {
+    message.reply("文章を入力してね！");
+  }
 }
+
   if (message.content==="好きな食べ物は？"){
     message.reply("甘いものが好きだよ!🍰");
   }
