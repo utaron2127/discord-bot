@@ -30,7 +30,7 @@ client.on("messageCreate", (message) => {
   const username = message.author.username;
   if (message.content === "!who") {
   const userId = message.author.id;  
-  message.reply(`あなたのユーザー名は ${username} です！`);
+message.reply(`あなたのユーザー名は ${username}、IDは ${userId} です！`);
 }
 
   if (message.content.startsWith("!echo")) {
