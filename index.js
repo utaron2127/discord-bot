@@ -23,7 +23,10 @@ client.on("messageCreate", (message) => {
     message.reply("名前を入力してね！");
   }
 }
-
+  if (message.content === "!ping") {
+  message.reply("🏓 Pong!");
+}
+});
   if (message.content === "こんにちは") {
   message.reply("こんにちは！");
 } else if (message.content === "おはよう") {
