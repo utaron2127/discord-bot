@@ -13,8 +13,32 @@ client.once("ready", () => {
   console.log(`ログイン成功！ ${client.user.tag}`);
 });
 
+const profiles = {};
+
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
+    if (message.content.startsWith("!profile ")) {
+    const text = message.content.slice(9).trim();
+    const parts = text.split("/").map(item => item.trim());
+
+    if (parts.length !== 5) {
+      message.reply(
+        "登録形式が違うよ！\n" +
+        "!profile 好きなゲーム / 好きな音楽 / 趣味 / 好きなもの / 一言"
+      );
+      return;
+    }
+
+    profiles[message.author.id] = {
+      game: parts[0],
+      music: parts[1],
+      hobby: parts[2],
+      favorite: parts[3],
+      message: parts[4]
+    };
+
+    message.reply("✅ プロフィールを登録したよ！");
+  }
   if (message.content.startsWith("!hello")) {
   const name = message.content.slice(6).trim();
 
@@ -124,15 +148,6 @@ client.on("voiceStateUpdate", (oldState, newState) => {
 
     if (!channel) return;
 
-    const profiles = {
-      "1040392956814835763": {
-        game: "カードゲーム",
-        music: "邦ロック・J-POP",
-        hobby: "ゲーム・音楽鑑賞",
-        favorite: "甘いもの",
-        message: "よろしくお願いします！"
-      }
-    };
 
     const userProfile = profiles[member.id];
 
