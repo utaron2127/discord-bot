@@ -21,7 +21,6 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
   // プロフィール登録
-  // プロフィール登録
 // プロフィール機能
 if (message.content.startsWith("!profile")) {
 
