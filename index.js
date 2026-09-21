@@ -9,8 +9,10 @@ const client = new Client({
   ]
 });
 
-client.once("ready", () => {
-  console.log(`ログイン成功！ ${client.user.tag}`);
+client.on("messageCreate", (message) => {
+  console.log("★ MESSAGE CREATE ★");
+  console.log(message.content);
+}`);
 });
 
 // ユーザーのプロフィールを保存
