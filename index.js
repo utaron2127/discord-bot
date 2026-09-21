@@ -22,27 +22,47 @@ client.on("messageCreate", (message) => {
 
   // プロフィール登録
   // プロフィール登録
-if (message.content.startsWith("!profile ")) {
-  const text = message.content.slice(9).trim();
+// プロフィール機能
+if (message.content.startsWith("!profile")) {
 
-  const parts = text.split("/").map(item => item.trim());
+  // プロフィール削除
+  if (message.content === "!profile delete") {
 
-  if (parts.length !== 4) {
-    message.reply(
-      "登録形式が違うよ！\n" +
-      "!profile Name / add / age / Bday"
-    );
+    if (!profiles[message.author.id]) {
+      message.reply("プロフィールは登録されてないよ！");
+      return;
+    }
+
+    delete profiles[message.author.id];
+
+    message.reply("🗑️ プロフィールを削除したよ！");
     return;
   }
 
-  profiles[message.author.id] = {
-    name: parts[0],
-    add: parts[1],
-    age: parts[2],
-    bday: parts[3]
-  };
+  // 自分のプロフィール登録
+  if (message.content.startsWith("!profile ")) {
 
-  message.reply("✅ プロフィールを登録したよ！");
+    const text = message.content.slice(9).trim();
+
+    const parts = text.split("/").map(item => item.trim());
+
+    if (parts.length !== 4) {
+      message.reply(
+        "登録形式が違うよ！\n" +
+        "!profile Name / add / age / Bday"
+      );
+      return;
+    }
+
+    profiles[message.author.id] = {
+      name: parts[0],
+      add: parts[1],
+      age: parts[2],
+      bday: parts[3]
+    };
+
+    message.reply("✅ プロフィールを登録したよ！");
+  }
 }
 });
 
