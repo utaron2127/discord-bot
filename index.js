@@ -124,14 +124,28 @@ client.on("voiceStateUpdate", (oldState, newState) => {
 
     if (!channel) return;
 
+    const profiles = {
+      "1040392956814835763": {
+        game: "カードゲーム",
+        music: "邦ロック・J-POP",
+        hobby: "ゲーム・音楽鑑賞",
+        favorite: "甘いもの",
+        message: "よろしくお願いします！"
+      }
+    };
+
+    const userProfile = profiles[member.id];
+
     const profile = `
 🟢 **${member.displayName}さんが参加しました！**
 
 👤 **プロフィール**
-🎮 好きなゲーム：〇〇
-🎵 好きな音楽：邦ロック
-🍰 好きなもの：甘いもの
-📝 一言：よろしくお願いします！
+
+🎮 好きなゲーム：${userProfile?.game || "未登録"}
+🎵 好きな音楽：${userProfile?.music || "未登録"}
+🎮 趣味：${userProfile?.hobby || "未登録"}
+🍰 好きなもの：${userProfile?.favorite || "未登録"}
+📝 一言：${userProfile?.message || "未登録"}
 `;
 
     channel.send(profile).catch(console.error);
