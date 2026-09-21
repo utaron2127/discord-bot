@@ -69,6 +69,8 @@ if (message.content.startsWith("!")){
 message.reply("❓ そのコマンドは知らないよ！");
   } 
 }
+
+  
 if (message.content.includes("ありがとう")) {
   message.reply("どういたしまして！");
 }
@@ -77,7 +79,11 @@ if (message.content.includes("ありがとう")) {
     message.reply("甘いものが好きだよ!🍰");
   }
     
+if (message.content.startsWith("!say")) {
+  const text = message.content.slice(4).trim();
 
+  message.reply(text);
+}
   if (message.content === "こんにちは") {
   const replies = [
     "こんにちは！",
