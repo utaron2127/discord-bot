@@ -6,11 +6,7 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildVoiceStates
-
-  ]
-
-});
-  ]
+]
 });
 
 client.once("ready", () => {
