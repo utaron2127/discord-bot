@@ -9,12 +9,6 @@ const client = new Client({
   ]
 });
 
-client.on("messageCreate", (message) => {
-  console.log("★ MESSAGE CREATE ★");
-  console.log(message.content);
-});
-});
-
 // ユーザーのプロフィールを保存
 const profiles = {};
 
