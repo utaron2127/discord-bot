@@ -84,6 +84,16 @@ if (message.content.startsWith("!say")) {
 
   message.reply(text);
 }
+if (message.content.startsWith("!say2")) {
+  const text = message.content.slice(5).trim();
+  const parts = text.split(" ");
+
+  const name = parts[0];
+  const messageText = parts[1];
+
+  message.reply(`${name}さん → ${messageText}`);
+}
+  
   if (message.content === "こんにちは") {
   const replies = [
     "こんにちは！",
