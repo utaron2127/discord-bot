@@ -18,6 +18,7 @@ const profiles = {};
 
 // メッセージを受け取ったとき
 client.on("messageCreate", (message) => {
+console.log("メッセージ受信:", message.content);  
   if (message.author.bot) return;
 
   // プロフィール登録
