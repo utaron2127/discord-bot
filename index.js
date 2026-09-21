@@ -17,6 +17,10 @@ client.on("messageCreate", (message) => {
 console.log("メッセージ受信:", message.content);  
   if (message.author.bot) return;
 
+if (message.content === "!hello") {
+  message.reply("こんにちは！");
+}  
+
   // プロフィール登録
 // プロフィール機能
 if (message.content.startsWith("!profile")) {
