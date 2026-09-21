@@ -51,13 +51,14 @@ if (message.author.id === "1040392956814835763") {
   }
 }
 
+  
   if (
   message.author.id==="1040392956814835763"&&
   message.content ==="!hello"
 ) {
   message.reply("こんにちは！ユタロ");
 }
-
+if (message.content.startsWith("!")){
   if (message.content === "!apple") {
   message.reply("🍎 りんご！");
 } else if (message.content === "!banana") {
@@ -65,9 +66,9 @@ if (message.author.id === "1040392956814835763") {
 } else if (message.content === "!melon") {
   message.reply("🍈 メロン！");
 }else {
-
-  message.reply("❓ そのコマンドは知らないよ！");
+message.reply("❓ そのコマンドは知らないよ！");
   } 
+}
 if (message.content.includes("ありがとう")) {
   message.reply("どういたしまして！");
 }
