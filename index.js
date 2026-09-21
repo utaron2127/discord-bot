@@ -50,6 +50,13 @@ if (message.author.id === "1040392956814835763") {
     message.reply("これはユタロ専用だよ！");
   }
 }
+
+  if (
+  message.author.id==="1040392956814835763"&&
+  message.content ==="!hello"
+) {
+  message.reply("こんにちは！ユタロ");
+}
   
 if (message.content.includes("ありがとう")) {
   message.reply("どういたしまして！");
