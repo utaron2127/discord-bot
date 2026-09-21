@@ -21,29 +21,29 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
   // プロフィール登録
-  if (message.content.startsWith("!profile ")) {
-    const text = message.content.slice(9).trim();
+  // プロフィール登録
+if (message.content.startsWith("!profile ")) {
+  const text = message.content.slice(9).trim();
 
-    const parts = text.split("/").map(item => item.trim());
+  const parts = text.split("/").map(item => item.trim());
 
-    if (parts.length !== 5) {
-      message.reply(
-        "登録形式が違うよ！\n" +
-        "!profile 好きなゲーム / 好きな音楽 / 趣味 / 好きなもの / 一言"
-      );
-      return;
-    }
-
-    profiles[message.author.id] = {
-      game: parts[0],
-      music: parts[1],
-      hobby: parts[2],
-      favorite: parts[3],
-      message: parts[4]
-    };
-
-    message.reply("✅ プロフィールを登録したよ！");
+  if (parts.length !== 4) {
+    message.reply(
+      "登録形式が違うよ！\n" +
+      "!profile Name / add / age / Bday"
+    );
+    return;
   }
+
+  profiles[message.author.id] = {
+    name: parts[0],
+    add: parts[1],
+    age: parts[2],
+    bday: parts[3]
+  };
+
+  message.reply("✅ プロフィールを登録したよ！");
+}
 });
 
 // VCに入ったとき
@@ -64,16 +64,13 @@ client.on("voiceStateUpdate", (oldState, newState) => {
 
 👤 **プロフィール**
 
-🎮 好きなゲーム：${userProfile?.game || "未登録"}
-🎵 好きな音楽：${userProfile?.music || "未登録"}
-🎮 趣味：${userProfile?.hobby || "未登録"}
-🍰 好きなもの：${userProfile?.favorite || "未登録"}
-📝 一言：${userProfile?.message || "未登録"}
+👤 Name：${userProfile?.name || "未登録"}
+📍 add：${userProfile?.add || "未登録"}
+🎂 age：${userProfile?.age || "未登録"}
+🎉 Bday：${userProfile?.bday || "未登録"}
 `;
 
     channel.send(profile).catch(console.error);
   }
 });
-
-client.login(process.env.DISCORD_TOKEN);
 client.login(process.env.DISCORD_TOKEN);
