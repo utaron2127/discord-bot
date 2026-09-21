@@ -4,7 +4,12 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildVoiceStates
+
+  ]
+
+});
   ]
 });
 
@@ -114,5 +119,26 @@ if (message.content.startsWith("!say2")) {
 
     message.reply("こんばんは！");
 }
+});
+client.on("voiceStateUpdate", (oldState, newState) => {
+  // VCに入ったときだけ反応
+  if (!oldState.channelId && newState.channelId) {
+    const member = newState.member;
+    const channel = newState.channel;
+
+    if (!channel) return;
+
+    const profile = `
+🟢 **${member.displayName}さんが参加しました！**
+
+👤 **プロフィール**
+🎮 好きなゲーム：〇〇
+🎵 好きな音楽：邦ロック
+🍰 好きなもの：甘いもの
+📝 一言：よろしくお願いします！
+`;
+
+    channel.send(profile).catch(console.error);
+  }
 });
 client.login(process.env.DISCORD_TOKEN);
