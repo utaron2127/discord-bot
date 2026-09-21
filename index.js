@@ -57,7 +57,17 @@ if (message.author.id === "1040392956814835763") {
 ) {
   message.reply("こんにちは！ユタロ");
 }
-  
+
+  if (message.content === "!apple") {
+  message.reply("🍎 りんご！");
+} else if (message.content === "!banana") {
+  message.reply("🍌 バナナ！");
+} else if (message.content === "!melon") {
+  message.reply("🍈 メロン！");
+}else {
+
+  message.reply("❓ そのコマンドは知らないよ！");
+  } 
 if (message.content.includes("ありがとう")) {
   message.reply("どういたしまして！");
 }
