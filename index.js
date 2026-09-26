@@ -38,6 +38,7 @@ client.on("messageCreate", (message) => {
 
     const text = message.content.slice(8).trim();
 
+
     // ====================
     // プロフィール削除
     // ====================
@@ -71,10 +72,10 @@ client.on("messageCreate", (message) => {
 
     const parts = text.split("/").map(item => item.trim());
 
-    if (parts.length !== 6) {
+    if (parts.length !== 4) {
       message.reply(
         "登録形式が違うよ！\n" +
-        "!profile @ユーザー / 好きなゲーム / 好きな音楽 / 趣味 / 好きなもの / 一言"
+        "!profile @ユーザー / add / age / Bday"
       );
       return;
     }
@@ -90,11 +91,9 @@ client.on("messageCreate", (message) => {
     const userId = user.id;
 
     profiles[userId] = {
-      game: parts[1],
-      music: parts[2],
-      hobby: parts[3],
-      favorite: parts[4],
-      message: parts[5]
+      add: parts[1],
+      age: parts[2],
+      Bday: parts[3]
     };
 
     message.reply("✅ プロフィールを登録しました！");
@@ -123,11 +122,9 @@ client.on("voiceStateUpdate", (oldState, newState) => {
 
 👤 **プロフィール**
 
-🎮 好きなゲーム：${userProfile?.game || "未登録"}
-🎵 好きな音楽：${userProfile?.music || "未登録"}
-🎮 趣味：${userProfile?.hobby || "未登録"}
-🍰 好きなもの：${userProfile?.favorite || "未登録"}
-📝 一言：${userProfile?.message || "未登録"}
+📍 add：${userProfile?.add || "未登録"}
+🎂 age：${userProfile?.age || "未登録"}
+🎁 Bday：${userProfile?.Bday || "未登録"}
 `;
 
     // VCのチャットに送信
