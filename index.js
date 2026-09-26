@@ -43,7 +43,7 @@ client.on("messageCreate", (message) => {
     // プロフィール削除
     // ====================
 
-    if (text.startsWith("delete")) {
+if (text.split(/\s+/)[0].toLowerCase() === "delete") {
 
       const user = message.mentions.users.first();
 
